@@ -1,0 +1,89 @@
+header{
+    min-height: 100vh;
+    padding: 32px 40px;
+
+    display: grid;
+
+    background-image: url('/assets/img/header-1.png');
+    background-color: #120440;
+    grid-template-rows: auto 1fr;
+    
+    position: relative;
+    overflow: hidden;
+}
+
+.content{
+    display: grid;
+    align-content: center;
+    justify-items: start;
+    row-gap: 46px;
+    position: relative;
+}
+
+
+h1{
+    font-weight: 800;
+    font-size: 96px;
+    line-height: 100%;
+    /* identical to box height, or 96px */
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#octopus-img{
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    transform: translate(0%, 30%);
+    height: 115vh;
+    pointer-events: none;
+}
+
+.title{
+    position: relative;
+    z-index: 1;
+
+    button{
+        position: absolute;
+        right: 0px;
+        bottom: 16px;
+        width: 186px;
+        height: 68px;
+        background: linear-gradient(99.27deg, #C912B0 5.04%, #A2019E 116.27%);
+        font-weight: 600;
+        font-size: 20px;
+        color: #fff;
+        border: none;
+    }
+}
+
+.description{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+    color: #fff;
+}
+
+#to-next-block{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: grid;
+    height: 32px;
+    width: 124px;
+    background-size: contain;
+    place-items: center;
+    font-size: 14px;
+    line-height: 140%;
+    color: #6A74AB;
+    transition: .3s;
+    cursor: pointer;
+    &:hover{
+        color: #fff;
+    }
+
+    background-image: url('/assets/img/icons/scroll-btn.png');
+}

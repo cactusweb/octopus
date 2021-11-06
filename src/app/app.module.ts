@@ -1,16 +1,40 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavComponent } from './components/nav/nav.component';
+import { HeaderComponent } from './components/header/header.component';
+import { TranslocoRootModule } from './transloco/transloco-root.module';
+import { LangSwitcherComponent } from './components/lang-switcher/lang-switcher.component';
+import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './components/about/about.component';
+import { FaqComponent } from './components/faq/faq.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SuccessBlockComponent } from './components/success-block/success-block.component';
+import { FaqCardComponent } from './components/faq-card/faq-card.component';
+import { AboutSecondComponent } from './components/about-second/about-second.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    HeaderComponent,
+    LangSwitcherComponent,
+    AboutComponent,
+    FaqComponent,
+    FooterComponent,
+    SuccessBlockComponent,
+    FaqCardComponent,
+    AboutSecondComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    TranslocoRootModule
   ],
   providers: [],
   bootstrap: [AppComponent]
