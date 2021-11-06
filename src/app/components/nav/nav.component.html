@@ -1,0 +1,27 @@
+<nav class="row">
+
+    <ul class="row menu">
+        <li class="menu__item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="15" viewBox="0 0 28 15" fill="none">
+                <path d="M2 1.5H23" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 7.5H18" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 13.5H26" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </li>
+        <li class="menu__item">
+            <a class="menu__link" href="#about" (click)="scrollTo('about', $event)" transloco="nav.about">О проекте</a>
+        </li>
+        <li class="menu__item">
+            <a class="menu__link" href="#faq" (click)="scrollTo('faq', $event)">F.A.Q</a>
+        </li>
+        <li class="menu__item">
+            <a class="menu__link" href="#success" (click)="scrollTo('success', $event)" transloco="nav.success">Успехи участников</a>
+        </li>
+    </ul>
+
+    <div class="btns row">
+        <app-lang-switcher></app-lang-switcher>
+        <a href="https://dash.octopus-cook.com" class="btn dash-link">Dashboard</a>
+    </div>
+
+</nav>

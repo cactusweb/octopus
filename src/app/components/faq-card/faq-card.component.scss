@@ -1,0 +1,45 @@
+:host{
+    display: grid;
+}
+
+.card{
+    display: grid;
+    position: relative;
+    border-radius: 114px;
+    background: rgba(34, 44, 107, 0.2);
+    border: 1.5px solid #284AA0;
+    backdrop-filter: blur(10px);
+    border-radius: 114px;
+    padding: 24px 32px;
+    &__status-icon{
+        position: absolute;
+        top: 36px;
+        right: 48px;
+        transition: .3s;
+    }
+
+    &__title{
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 140%;
+    }
+
+    &__body{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 120%;
+        margin-top: 0px;
+        max-height: 0px;
+        transition: .3s;
+        overflow: hidden;
+    }
+
+    &--active &__body{
+        margin-top: 24px;
+    }
+
+    &--active &__status-icon{
+        transform: rotate(180deg);
+    }
+
+}
