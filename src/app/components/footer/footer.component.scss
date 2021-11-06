@@ -1,3 +1,5 @@
+$tab-size: 780px;
+
 :host{
     display: grid;
     position: relative;
@@ -6,6 +8,11 @@
 
 footer{
     column-gap: 30px;
+    row-gap: 64px;
+    @media screen and ( max-width: $tab-size ) {
+        grid-auto-flow: initial;
+        justify-items: center;
+    }
 }
 
 h3{
@@ -14,11 +21,21 @@ h3{
     line-height: 100%;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    @media screen and ( max-width: $tab-size ) {
+        br{
+            display: none;
+        }
+    }
 }
 
 .links{
     column-gap: 32px;
     justify-content: end;
+    row-gap: 32px;
+    @media screen and ( max-width: $tab-size ) {
+        grid-auto-flow: initial;
+        justify-items: center;
+    }
 }
 
 .link{

@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SuccessBlockComponent } from './components/success-block/success-block.component';
 import { FaqCardComponent } from './components/faq-card/faq-card.component';
 import { AboutSecondComponent } from './components/about-second/about-second.component';
+import { NavMobMenuComponent } from './components/nav-mob-menu/nav-mob-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AboutSecondComponent } from './components/about-second/about-second.com
     FooterComponent,
     SuccessBlockComponent,
     FaqCardComponent,
-    AboutSecondComponent
+    AboutSecondComponent,
+    NavMobMenuComponent
   ],
   imports: [
     BrowserModule,

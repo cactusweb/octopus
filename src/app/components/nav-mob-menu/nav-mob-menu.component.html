@@ -1,0 +1,14 @@
+<ul class="menu" [class.menu--active]="isActive">
+    <li class="menu__item">
+        <a class="menu__link" href="#about" (click)="scrollTo('about', $event)" transloco="nav.about">О проекте</a>
+    </li>
+    <li class="menu__item">
+        <a class="menu__link" href="#faq" (click)="scrollTo('faq', $event)">F.A.Q</a>
+    </li>
+    <li class="menu__item">
+        <a class="menu__link" href="#success" (click)="scrollTo('success', $event)" transloco="nav.success">Успехи участников</a>
+    </li>
+    <li class="menu__item">
+        <app-lang-switcher></app-lang-switcher>
+    </li>
+</ul>

@@ -1,3 +1,5 @@
+$tab-size: 840px;
+
 :host{
     display: grid;
 }
@@ -5,7 +7,7 @@
 
 
 .about{
-    row-gap: 20px;
+    row-gap: 24px;
     &__row{
         display: grid;
         &:nth-child(1), &:last-child{
@@ -23,9 +25,13 @@
         &:nth-child(3){
             grid-template-columns: 1.2fr 1fr;
         }
-    }
 
-    
+        @media screen and ( max-width: $tab-size ) {
+            grid-template-columns: auto !important;
+            row-gap: 24px;
+        }
+    }
+ 
 }
 
 
@@ -46,6 +52,11 @@
     transition: .3s;
     
 
+    @media screen and ( max-width: $tab-size ) {
+        height: 160px;
+        padding: 8px 16px;
+    }
+
     grid-template-rows: min-content min-content;
 
     &__title{
@@ -55,6 +66,11 @@
         // align-self: end;
         transition: .3s;
         justify-self: start;
+        @media screen and ( max-width: $tab-size ) {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 120%;
+        }
     }
 
     &__icon{
@@ -62,6 +78,13 @@
         max-height: 138px;
         height: 138px;
         overflow: hidden;
+        @media screen and ( max-width: $tab-size ) {
+            height: 128px;
+            svg{
+                width: 64px;
+                width: 64px;
+            }
+        }
     }
 
     &__body{

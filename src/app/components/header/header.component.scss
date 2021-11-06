@@ -1,10 +1,16 @@
+$tab-size: 780px;
+
 header{
     min-height: 100vh;
     padding: 32px 40px;
 
+    @media screen and ( max-width: $tab-size ) {
+        padding: 24px 20px;
+    }
+
     display: grid;
 
-    background-image: url('/assets/img/header-1.png');
+    background-image: url('/assets/img/header/main.png');
     background-color: #120440;
     grid-template-rows: auto 1fr;
     
@@ -18,6 +24,9 @@ header{
     justify-items: start;
     row-gap: 46px;
     position: relative;
+    @media screen and ( max-width: $tab-size ) {
+        transform: translate(0, -20%);
+    }
 }
 
 
@@ -30,6 +39,10 @@ h1{
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #fff;
+
+    @media screen and ( max-width: $tab-size ) {
+        font-size: 48px;
+    }
 }
 
 #octopus-img{
@@ -39,7 +52,13 @@ h1{
     transform: translate(0%, 30%);
     height: 115vh;
     pointer-events: none;
+    @media screen and ( max-width: 780px ) {
+        // display: none;
+        height: 65vh;
+        transform: translate(0, 16%);
+    }
 }
+
 
 .title{
     position: relative;
@@ -56,6 +75,12 @@ h1{
         font-size: 20px;
         color: #fff;
         border: none;
+        @media screen and ( max-width: $tab-size ) {
+            width: 85px;
+            height: 36px;
+            font-size: 12px;
+            bottom: 6px;
+        }
     }
 }
 
@@ -64,6 +89,9 @@ h1{
     font-size: 20px;
     line-height: 140%;
     color: #fff;
+    @media screen and ( max-width: $tab-size ) {
+        font-size: 16px;
+    }
 }
 
 #to-next-block{

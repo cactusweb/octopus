@@ -149,9 +149,15 @@ router-outlet{
     display: grid;
     grid-template-columns: auto 1fr;
     row-gap: 64px;
+    
+    @media screen and ( max-width: $tab-size ) {
+        row-gap: 32px;
+    }
+
     @media screen and ( max-width: 1150px ) {
         grid-template-columns: auto;
     }
+    
     column-gap: 100px;
     position: relative;
 
@@ -166,6 +172,10 @@ router-outlet{
         @media screen and ( max-width: 1150px ) {
             width: auto;
             position: initial;
+        }
+
+        @media screen and ( max-width: 780px ) {
+            font-size: 22px;
         }
     }
 

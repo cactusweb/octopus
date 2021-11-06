@@ -6,6 +6,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+  navIsOpen: boolean = false;
 
   constructor(
     private eRef: ElementRef
@@ -25,6 +26,10 @@ export class NavComponent implements OnInit {
         block: 'start'
       })
     }, 700);
+  }
+
+  changeNavStatus(){
+    this.navIsOpen = !this.navIsOpen
   }
 
 }

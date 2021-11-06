@@ -1,3 +1,7 @@
+:host{
+    z-index: 2;
+}
+
 nav{
     column-gap: 30px;
     > :first-child{
@@ -6,9 +10,14 @@ nav{
     > :last-child{
         justify-self: end;
     }
+    z-index: 5;
 }
 
 .menu{
+    @media screen and ( max-width: 880px ) {
+        display: none;
+    }
+
     column-gap: 40px;
     list-style: none;
     &__item{
@@ -49,9 +58,93 @@ a.btn{
         background-color: #E232CA;
         color: #fff;
     }
+    @media screen and ( max-width: 780px ) {
+        width: 147px;
+        height: 46px;
+        font-size: 16px;
+    }
 }
 
 
 .btns{
     column-gap: 40px;
+}
+
+
+
+app-lang-switcher{
+    @media screen and ( max-width: 780px ) {
+        display: none;
+    }
+}
+
+
+app-nav-mob-menu{
+    @media screen and ( min-width: 781px ) {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-burger-menu{
+    display: none;
+
+    @media screen and ( max-width: 880px ) {
+        display: grid;
+    }
+
+    justify-self: start;
+    row-gap: 4px;
+    align-items: center;
+    transition: .4s;
+    width: 22.5px;
+
+    .line{
+        height: 2.5px;
+        border-radius: 1px;
+        background-color: #fff;
+        width: 100%;
+        &:first-child{
+            width: 21px;
+        }
+        &:nth-child(2){
+            width: 16px;
+        }
+        transition: .4s;
+        pointer-events: none;
+    }
+
+    &--active .line{
+        &:nth-child(2){
+            opacity: 0;
+        }
+
+        &:nth-child(1){
+            transform: rotate(45deg) scale(1.35, 1) translate(4px, 9px);
+            // border-radius: 0.9px;
+        }
+        &:nth-child(3){
+            transform: rotate(-45deg) scale(1.28, 1) translate(-1px, -4px)
+        }
+    }
 }

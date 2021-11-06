@@ -11,13 +11,19 @@
     display: inline-block;
     width: 47px;
     height: 29px;
+    
     box-sizing: border-box;
     border: 2px solid #222C6B;
     border-radius: 24px;
     input{
-        display: none;
+      display: none;
     }
-}
+
+    @media screen and ( max-width: 780px ) {
+      width: 44px;
+      height: 26px;
+    }
+  }
 
 .slider {
     position: absolute;
@@ -42,11 +48,12 @@
     border: none;
     background-color: #5161C2;
     transition: .4s;
+    @media screen and ( max-width: 780px ) {
+      width: 19px;
+      height: 19px;
+    }
 }
   
-input:checked + .slider {
-//   background-color: #5161C2;
-}
   
 input:checked + .slider:before {
   transform: translate(18px, -50%);

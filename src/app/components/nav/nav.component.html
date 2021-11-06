@@ -1,5 +1,5 @@
 <nav class="row">
-
+    
     <ul class="row menu">
         <li class="menu__item">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="15" viewBox="0 0 28 15" fill="none">
@@ -18,10 +18,24 @@
             <a class="menu__link" href="#success" (click)="scrollTo('success', $event)" transloco="nav.success">Успехи участников</a>
         </li>
     </ul>
-
+    
+        
+    <span class="btn-burger-menu" [ngClass]="{ 'btn-burger-menu--active': navIsOpen }" id="open-nav-mob" (click)="changeNavStatus()">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </span>
+    
+    
+    
     <div class="btns row">
         <app-lang-switcher></app-lang-switcher>
         <a href="https://dash.octopus-cook.com" class="btn dash-link">Dashboard</a>
     </div>
-
+    
 </nav>
+
+
+
+
+<app-nav-mob-menu (onClose)="navIsOpen = false" [isActive]="navIsOpen"></app-nav-mob-menu>
