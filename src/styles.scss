@@ -72,6 +72,18 @@ router-outlet{
 }
 
 
+.success-block{
+    @extend .row;
+    overflow-x: auto;
+    column-gap: 48px;
+    @media screen and ( max-width: 780px ) {
+        column-gap: 24px;
+    }
+    // width: 100vw;
+    &::-webkit-scrollbar{
+        height: 0px;
+    }
+}
 
 ::-webkit-scrollbar{
     width:8px;

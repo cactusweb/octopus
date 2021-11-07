@@ -44,6 +44,9 @@ main{
 #octopus-footer{
     width: 90%;
     margin-top: 0px;
+    @media screen and ( max-width: 780px ) {
+        width: 100%;
+    }
 }
 
 

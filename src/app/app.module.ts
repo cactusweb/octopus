@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +35,8 @@ import { NavMobMenuComponent } from './components/nav-mob-menu/nav-mob-menu.comp
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    TranslocoRootModule
+    TranslocoRootModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
