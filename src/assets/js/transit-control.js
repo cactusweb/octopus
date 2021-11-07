@@ -11,7 +11,6 @@ let sectionCount = getSectionCountOfBlock();
 
 
 function onTouchMove( e, blockName ){
-    console.log(e)
     let action = handleTouchMove(e);
     if ( action == 'up' && blockName == 'header' )
         moveToNextSection(); else
@@ -23,7 +22,6 @@ function onTouchMove( e, blockName ){
 
 
 function onWheelMove( e, blockName ){
-    console.log(e)
     if ( e.deltaY > 0 && blockName == 'header' && currentScrollTop == 0 )
         moveToNextSection();
 
@@ -57,7 +55,6 @@ document.querySelector( `#${blockId}` ).addEventListener( 'wheel', e => onWheelM
 document.querySelector( `header` ).addEventListener( 'wheel', e => onWheelMove( e, 'header' ) )
 
 document.addEventListener( 'keydown', e => {
-    console.log(e)
     if ( e.key == 'ArrowUp'  && document.querySelector(`#${blockId} main.transit-section`).scrollTop <= 0 )
         moveToPrevSection();else 
     if ( e.key == 'ArrowDown' && moveToNextSection() )

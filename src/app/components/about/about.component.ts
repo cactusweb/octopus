@@ -7,6 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  cardsName = [
+    [
+      'market',
+      'crypto-currency',
+    ],
+    [
+      'technic',
+      'nft',
+    ],
+    [
+      'crypto-games',
+      'sneakers',
+    ],
+    [
+      'groupbuys',
+      'community'
+    ]
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

@@ -57,6 +57,9 @@
   
 input:checked + .slider:before {
   transform: translate(18px, -50%);
+  @media screen and ( max-width: 780px ) {
+    transform: translate(16px, -50%);
+  }
 }
   
 .slider.round {

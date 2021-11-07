@@ -2,9 +2,6 @@ $tab-size: 840px;
 
 :host{
     display: grid;
-    @media screen and ( max-width: 840px ) {
-        display: none;
-    }
 }
 
 
@@ -38,21 +35,29 @@ $tab-size: 840px;
 }
 
 
+
+
+
+
+
+
 .card{
     display: grid;
-    border-radius: 114px;
+    border-radius: 24px;
     border: 1.5px solid #284AA0;
-    min-height: 180px;
+    height: 210px;
     backdrop-filter: blur(10px);
-    padding: 0px 0px 8px;
-    transition: .3s;
     background: rgba(34, 44, 107, 0.01);
-
-    grid-template-rows: min-content min-content;
+    padding: 16px 24px;
+    transition: .3s;
+    
 
     @media screen and ( max-width: $tab-size ) {
-        height: 160px;
+        height: 210px;
+        padding: 8px 16px;
     }
+
+    grid-template-rows: min-content min-content;
 
     &__title{
         font-weight: 600;
@@ -70,14 +75,19 @@ $tab-size: 840px;
 
     &__icon{
         transition: .3s;
-        max-height: 138px;
-        height: 138px;
+        max-height: 154px;
+        height: 154px;
         overflow: hidden;
+        img{
+            width: 70px;
+            height: 70px;
+        }
         @media screen and ( max-width: $tab-size ) {
-            height: 128px;
-            svg{
-                width: 64px;
-                width: 64px;
+            max-height: 167px;
+            height: 167px;
+            img{
+                width: 60px;
+                height: 60px;
             }
         }
     }
@@ -87,8 +97,11 @@ $tab-size: 840px;
         max-height: 0px;
         transition: .3s;
         font-weight: 500;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 140%;
+        @media screen and ( max-width: 780px ) {
+            font-size: 16px;
+        }
     }
 
     &:hover{
@@ -98,7 +111,7 @@ $tab-size: 840px;
         }
 
         .card__body{
-            max-height: 125px;
+            max-height: 157px;
             margin-top: 12px;
         }
         // .card__title{
@@ -106,7 +119,3 @@ $tab-size: 840px;
         // }
     }
 }
-
-
-
-

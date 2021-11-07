@@ -3,157 +3,98 @@
     <h2 class="section__title" transloco="nav.about">О проекте</h2>
 
     <div class="section__content about">
-        <div class="about__row">
+
+        <div class="about__row" *ngFor="let cards of cardsName">
+            <div class="about__card card" *ngFor="let card of cards">
+                <div class="card__icon">
+                    <img src="/assets/img/about/{{card}}.png" alt="">
+                </div>
+                <h3 class="card__title" [transloco]="'about.' + card + '.title'">{{card}}</h3>
+                <p class="card__body" [transloco]="'about.' + card + '.body'">
+            </div>
+        </div>
+
+        <!-- <div class="about__row">
             <div class="about__card card">
                 <div class="card__icon">
-                    <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect width="80" height="80" rx="40" fill="#284AA0"/>
-                        <rect x="24" y="19" width="32" height="34" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_1227:344" transform="translate(0 0.00284091) scale(0.01 0.00984848)"/>
-                        </pattern>
-                        <image id="image0_1227:344" width="100" height="100" xlink:href="data:image/png;base64,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"/>
-                        </defs>
-                    </svg>
+                    <img src="/assets/img/about/market.png" alt="">
                 </div>
-                <h3 class="card__title">Техника</h3>
+                <h3 class="card__title">Тендеции рынка</h3>
                 <p class="card__body">
-                    Отделом NFT у нас занимается отдельная команда, которая уже давно разбирается в подобных темах и способна делиться качественным анализом предстоящих релизов.
+                    Мы постоянно открываем что-то новое, что позволяет нашим участникам получать наиболее актуальную информацию об необычных способах заработка.
                 </p>
             </div>
             <div class="about__card card">
                 <div class="card__icon">
-                    <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect width="80" height="80" rx="40" fill="#284AA0"/>
-                        <rect x="24" y="19" width="32" height="34" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_1227:344" transform="translate(0 0.00284091) scale(0.01 0.00984848)"/>
-                        </pattern>
-                        <image id="image0_1227:344" width="100" height="100" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAAKuklEQVR4nO2de7BVdRXHv/vyEJMQ5AqKD0RNwkCUJC0cX5WP0ohEYaSaCi1rRqupzKbMUsZHVkzNNBOlWfYYBQa0NN8xqJmFoaVE2liiCMjbKw+By/30x9pXNr+9zzn7efa559zvzJ255+z9W+v7+62z9++11vpJvehFqwDoB3hl8+iFJOAiYBPQAVxYNp+WB7CGPVhVNp+WBrAve2Nr3LJtRRJrYQx3Pm+IW7DXIMXgPc7nZXEL9hqkGMxwPj9WCoteSMApQFeg/9gNHFE2r5YEcBjwitOhzy+bV0sCOAH4n2OM7cDRZXNrKQAecAXwJmFcWja/lgJwMvBYhCEAZpfNr2UAnATcXcEQXcB1ZXNsegBtwOQqTwTY2tVFZXNtagDDgG9EdNjuU3EHcFjZfJsWwLuBOcC2KoYAeBI4pWy+TQlgIPB54NkaRugC7gHOLJtzUwI4BLgR2FjDEB3AT4ExZXNuSgBHAL8EdtYwxDPAZcDby+bclADa/SdiexUjvAnMBT5QNt+mBTZ0/SLwRhVDvAx8FRhSNt+mBnAUsLiKIZYCFwP9yuba9AAuAbZUMMTzwFR6vUOKB9AH+HEFQ2zEOureJ6Ie8I1xewVj3A8cWjbHlgG2JP7bCENsA2aWza/lAFxf4RXVu8RRbwDnsPeeNsAqYHzZ3FoOwBDgNccYm4HRZXNrSQA/cYyxGzivbF4tCWzi1+kY5NqyebUssL2LIJ4H9imbV0sCGARsdQxycdm8WhbATMcYLwF9yuaVBs3i2zvF+fwrz/N2l8IkIwpdUMMW7E6X9ClJkySNkNRfUofMRX+FpCUyZ+THPc/rSKGjvy9rYODr8Z7n/TOBjEGSTpF0qqQTJY2UNFTSIEk7Jb0q6QlJt0la7HkeSXmWDuACYHlovlwZndga01S/kePqOcmRs5oYK7dAf+BCX6c7OquG5cDHsrVOHQGMABYmqGAU1mCbRPvF0PdZp+zdNe4fCHyNvUPO0mABcHB+LVcAsF9r1ooGsQ74OjCwis4fOWUivQYxQ1zly8wLqwE3OKcxgD3+UT5Mu4B52BpTOxZ/NwIYC3wYWwh8HJtVV8I6YBZwSITe+c69M53rhwM3AOuryN/tc7je5zTW57ivz/kcvw67Ispuo9GibIFPVmjQJ4BxMWWM8hu9WsN1+jKvxtw6xwB/ce65HPtxXAssIbzQGES3oUfF5HhchD78un8iWyvmBGAa4U6xC/gOkHhYTTGvFhfrfB0VX4VV+LVhxnYN3UnZfr3Yo+z6NG0HpucgO6/ON4jVvszEhojgN52wG9FO4OysstMSGo15ewexg5xXV0k/PO3GLuBBX0bs4XRMbuf5dQ5iE3BMnnriEBkM/Dui4hcUrHcQ8CHMye1h4D/YTmAn9gpZjXkZ3gP80G+wQQVzmhrxQ1kO7F+kXpfEgohf4hV1I9BgwJzvXNQn2BPzcXJxe12UNzCAWyLa5dNFK30HYTfMp+jddxAwwG+LIN6gqChczLXmcUfhVnr3q98C8E7C+zKPUoRXJHBpxCN5We6KejiAL0S002fyVnIgsMFRcn8hlu/h8N8kDzpttR44ME8ltzoKtgFH5aagyQAcTXjSeGtewscRXqe6OhfhTQzgGqfNdgPH5yH4j47gF2iRURWWTGY+FlvYge3zxBrEAPtgE9cg7s1K6AzCaKyl5oLgG8PtN8FWBmLFo2PLNS5Oz0LKHeY+ScKOPIIQQMPvSRPeZwlibkwZHvBXp+yjaQmdGkHktBRyeqpBOqoY5PUEck6LKJ/cCx+4zxHyp8RC1LQG2ZxQ1iKnfLK+BEvG5W7AnJVIyB5ZPdUg1Rw17kwo62ynfBdJwiOAXzgCnkpcoz2yeqpBRhOd2WE9KcLhgL87cm6JW3AIYWeFaYlrtEdejzSI9NZIay7wuv93Zxpj+LKmO02wFRgcp+CXnIKriRGpWqnhkyJNZdOCDPOMpOWxnU93O/ryOEpcb8NY2dF6mkHIOM9IU55w7ONztZRMdAp0AofHrGAuiKMrD5BxnpGmPJbsxl2GmlBNyfedm+9PUMFcEFdfVpBxnpG2PPCQc+9NwettgRs9Se6ySKLhXRMh6w+jWvk7nM/TCKx+BB3Z3isp+HraKWlhRmKNjEeqXHugwPILZG3bjZGSTg7dRbjD+X0MUjVR9qupCq9M84ws5YE/OGVmRd3kTlwuyVDfoNyGNIiUfZ6Rtjxhz50l7g3DCPf+uaQ8bWSD1AIZ5yk15AaxG2gP3jDDuaH6+DiZ8h5pEHLYD6khf5kjd7q0p1Of5Nwfp1NrdsyWdEDE90Mk/SAH+Q86nydJewxyonPxzzko7Omotrqdh4e728ZmA2yNxT1qoeVTZpPjfkgF+SMdmduBfm2SjpMUdFpY43neK1kVNgGyzlOqwvO8FZJeC3w1QNK4NklulubUex9NhqskbYr4foOkr+Skw23rMW2S3Pi6F3JS1qPhed7zksZLmidLdNAhaa6k4z3PW5mTGretR/WVdKTz5X9zUlYIsCioMySdKel9kg6VNMy/vFbSSlmHuUjSIs/zdkbJiQP/1V1k3KDb1keKcHLhcwskkBpYmPIsksUcrgGuo0ED/LFosCAWRW1IjS2baBBY8Oe1hN38k2AL8F1iZIaoJ7B4+CCWCct1HkSsDal6AIvydfllwcuUFSUbAcJD3xUivGIZNTutN9H9gJ9XadhtwG+wJZ9j/Pv38/+f4V+rdDJOF/Az4G0NUM+hDrcNIhzWm2vocAqSxxJe5+nG68A3gaEx5AwFvuWXicJzlHwwCzYpD2KHCMcxDCiR4DQqJ82/DRhWW0pI5nC/bBS2kMHFKSuwuMQgtgtz8wnioBKI9cFiz6PykqwDPpqDjnMj6tqNOZSQlB842OGxKmqUdWydSbUDj1RoqPvy/IH4DeD6LHfjYYJ7EnUA8C6Hw79EOB6ubglUsPxaL0U0zk7MYS/3GEYsRODLRJ879RJ1zH+FvaKDeCBqL/3GOhDxsOwH7oACYC11OI4OO/d8VYT+XaTMZJSCw/cc3bOE5UYMYmnBJNqBeyMaAuxY07rNqrHo4kqvy4couD/F8rIEMaW7gdxfaiH9CPBB4NWIyndhyWLK6Fj7+bqjBhQrgfcXpNftP3bQPZwH7nIuzslZ+VDsvMCoSq8Hzs9TX0qO5xOdza4LC8/IdcJMeOK7MHhxinOxk5ip+Woo7Y/1FZWywy2mgY4eAg7FUmFEYS2WPjDzxBlLFeimdJocvKGNcOKU5aQ8yw9bxrgMeLFC5TqxjrPh0oEDfbHFzErJ0l4EPkfKpRcs/sadavwNdxCBjTrcV8qTxPd+b/NlzCacaS6Ip4GJaSpTT2BD8n9UqcdGrO+ZFGrMyjIPJxyV20WlIFDg5gqKbwAmAPtj0/2DMFfKs7C8ur8jfLKNi01YcuS+ubZcgcA6/CuxU3qqYY3fBlf6bTLab6MBfptNoPLhxzdXI+D5gvPEDmxpIvE6VKMAOIDaZ+emwTxqPV2YVaOOnEuKVcC3KWFtrChgv/priJ5QJsWvSbKQC3wcG4cnwTpsiPgRmvgETWz0OBlbRU6aX3glMKOS7KprRViSmamSJkuaKGm4X2azzEVmg6RnJT0j6WlJS3vquR1pgY0UJ0g6wf8bK6ld0mD/D0lrZMdy3CVpged5OyrJ+z8ySWSJ0T9z+gAAAABJRU5ErkJggg=="/>
-                        </defs>
-                    </svg>
+                    <img src="/assets/img/about/crypto-currency.png" alt="">
+                </div>
+                <h3 class="card__title">Криптовалюта</h3>
+                <p class="card__body">
+                    Octopus Cook с первого дня был местом, где можно узнать как можно больше о криптовалюте.
+                </p>
+            </div>
+        </div>
+        
+        <div class="about__row">
+            <div class="about__card card">
+                <div class="card__icon">
+                    <img src="/assets/img/about/technic.png" alt="">
                 </div>
                 <h3 class="card__title">Техника</h3>
                 <p class="card__body">
-                    Отделом NFT у нас занимается отдельная команда, которая уже давно разбирается в подобных темах и способна делиться качественным анализом предстоящих релизов.
+                    Техника является для нас одной из важнейших сфер, поэтому с нами вы никогда не упустите информацию о ближайших релизах.
+                </p>
+            </div>
+            <div class="about__card card">
+                <div class="card__icon">
+                    <img src="/assets/img/about/nft.png" alt="">
+                </div>
+                <h3 class="card__title">NFT</h3>
+                <p class="card__body">
+                    Отделом NFT занимается отдельная команда, которая уже давно работает в этой сфере и способна делится качественным анализом предстоящих релизов.
+                </p>
+            </div>
+        </div>
+
+        <div class="about__row">
+            <div class="about__card card">
+                <div class="card__icon">
+                    <img src="/assets/img/about/crypto-games.png" alt="">
+                </div>
+                <h3 class="card__title">Криптоигры</h3>
+                <p class="card__body">
+                    У нас есть отдельный раздел с подробным анализом игр Play to Earn, где мы рассказываем о самых прибыльных и малоизвестных проектах.
+                </p>
+            </div>
+            <div class="about__card card">
+                <div class="card__icon">
+                    <img src="/assets/img/about/sneakers.png" alt="">
+                </div>
+                <h3 class="card__title">Кроссовки</h3>
+                <p class="card__body">
+                    
                 </p>
             </div>
         </div>
         <div class="about__row">
             <div class="about__card card">
                 <div class="card__icon">
-                    <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect width="80" height="80" rx="40" fill="#284AA0"/>
-                        <rect x="24" y="19" width="32" height="34" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_1227:344" transform="translate(0 0.00284091) scale(0.01 0.00984848)"/>
-                        </pattern>
-                        <image id="image0_1227:344" width="100" height="100" xlink:href="data:image/png;base64,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"/>
-                        </defs>
-                    </svg>
+                    <img src="/assets/img/about/groupbuys.png" alt="">
                 </div>
-                <h3 class="card__title">Техника</h3>
+                <h3 class="card__title">Группбаи</h3>
                 <p class="card__body">
-                    Отделом NFT у нас занимается отдельная команда, которая уже давно разбирается в подобных темах 
+                    Благодаря огромному количеству партнеров наши участники имеют огромный шанс заполучить нужный им софт, так как подобную возможность мы предоставляем регулярно.
                 </p>
             </div>
             <div class="about__card card">
                 <div class="card__icon">
-                    <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect width="80" height="80" rx="40" fill="#284AA0"/>
-                        <rect x="24" y="19" width="32" height="34" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_1227:344" transform="translate(0 0.00284091) scale(0.01 0.00984848)"/>
-                        </pattern>
-                        <image id="image0_1227:344" width="100" height="100" xlink:href="data:image/png;base64,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"/>
-                        </defs>
-                    </svg>
+                    <img src="/assets/img/about/community.png" alt="">
                 </div>
-                <h3 class="card__title">Техника</h3>
+                <h3 class="card__title">Коммьюнити</h3>
                 <p class="card__body">
-                    Отделом NFT у нас занимается отдельная команда, которая уже давно разбирается в подобных темах и способна делиться качественным анализом предстоящих релизов.
+                    Главным преимуществом нашей группы являются люди. Наших участников по праву можно назвать частью одной семьи, где каждый делится своим опытом с другими.
                 </p>
             </div>
-        </div>
-        <div class="about__row">
-            <div class="about__card card">
-                <div class="card__icon">
-                    <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect width="80" height="80" rx="40" fill="#284AA0"/>
-                        <rect x="24" y="19" width="32" height="34" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_1227:344" transform="translate(0 0.00284091) scale(0.01 0.00984848)"/>
-                        </pattern>
-                        <image id="image0_1227:344" width="100" height="100" xlink:href="data:image/png;base64,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"/>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="card__title">Техника</h3>
-                <p class="card__body">
-                    Отделом NFT у нас занимается отдельная команда, которая уже давно разбирается в подобных темах и способна делиться качественным анализом предстоящих релизов.
-                </p>
-            </div>
-            <div class="about__card card">
-                <div class="card__icon">
-                    <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect width="80" height="80" rx="40" fill="#284AA0"/>
-                        <rect x="24" y="19" width="32" height="34" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_1227:344" transform="translate(0 0.00284091) scale(0.01 0.00984848)"/>
-                        </pattern>
-                        <image id="image0_1227:344" width="100" height="100" xlink:href="data:image/png;base64,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"/>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="card__title">Техника</h3>
-                <p class="card__body">
-                    Отделом NFT у нас занимается отдельная команда, которая уже давно разбирается в подобных темах и способна делиться качественным анализом предстоящих релизов.
-                </p>
-            </div>
-        </div>
-        <div class="about__row">
-            <div class="about__card card">
-                <div class="card__icon">
-                    <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect width="80" height="80" rx="40" fill="#284AA0"/>
-                        <rect x="24" y="19" width="32" height="34" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_1227:344" transform="translate(0 0.00284091) scale(0.01 0.00984848)"/>
-                        </pattern>
-                        <image id="image0_1227:344" width="100" height="100" xlink:href="data:image/png;base64,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"/>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="card__title">Техника</h3>
-                <p class="card__body">
-                    Отделом NFT у нас занимается отдельная команда, которая уже давно разбирается в подобных темах и способна делиться качественным анализом предстоящих релизов.
-                </p>
-            </div>
-            <div class="about__card card">
-                <div class="card__icon">
-                    <svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80" fill="none">
-                        <rect width="80" height="80" rx="40" fill="#284AA0"/>
-                        <rect x="24" y="19" width="32" height="34" fill="url(#pattern0)"/>
-                        <defs>
-                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                        <use xlink:href="#image0_1227:344" transform="translate(0 0.00284091) scale(0.01 0.00984848)"/>
-                        </pattern>
-                        <image id="image0_1227:344" width="100" height="100" xlink:href="data:image/png;base64,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"/>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="card__title">Техника</h3>
-                <p class="card__body">
-                    Отделом NFT у нас занимается отдельная команда, которая уже давно разбирается в подобных темах и способна делиться качественным анализом предстоящих релизов.
-                </p>
-            </div>
-        </div>
+        </div> -->
     </div>
 </section>

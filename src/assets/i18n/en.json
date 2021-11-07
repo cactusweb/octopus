@@ -44,6 +44,48 @@
     "footer": {
         "vk": "VKontakte",
         "tw": "Twitter"
+    },
+
+
+
+
+
+
+    
+    "about": {
+        "market": {
+            "title": "Exclusive information",
+            "body": "We are constantly discovering something new, which allows our members to receive the most up-to-date information about unusual ways of earning."
+        },
+        "crypto-currency": {
+            "title": "Crypto",
+            "body": "From the first day Octopus Cook has been a place where you can learn as much as possible about crypto."
+        },
+        "technic": {
+            "title": "Electronics",
+            "body": "Electronics is one of the most important spheres for us, with us you will never miss information about the upcoming releases in this sphere."
+        },
+        "nft": {
+            "title": "NFT",
+            "body": "We have a separate team dealing with the NFT section, which has a huge experience in this sphere and is able to share a qualitative analysis of upcoming releases."
+        },
+        "crypto-games": {
+            "title": "CryptoGames",
+            "body": "We have a separate section with a detailed analysis of Play to Earn games, where we notify about the most profitable and low-key projects."
+        },
+        "sneakers": {
+            "title": "Sneakers",
+            "body": "For sneakers we have: analysis, lists of sites and our own software, which greatly simplify the process of purchasing limited pairs of shoes."
+        },
+        "groupbuys": {
+            "title": "Groupbuys",
+            "body": "We have a lot of partners, for this reason our members have a great chance to get the software they need, since we provide such an opportunity regularly."
+        },
+        "community": {
+            "title": "Community",
+            "body": "The main advantage of our group is people. Our members can rightfully be called part of one family, where everyone shares their experience with others."
+        }
     }
+    
 
 }
