@@ -43,8 +43,8 @@ export class SuccessBlockComponent implements OnInit, AfterViewInit {
       if ( this.successVirtualScroll?._dataLength <= this.currentIndex )
         this.currentIndex = 0;
       else 
-      if ( !(this.successVirtualScroll._renderedRange.start <= this.currentIndex && this.successVirtualScroll._renderedRange.end >= this.currentIndex) )
-        this.currentIndex = Math.round( (this.successVirtualScroll._renderedRange.end + this.successVirtualScroll._renderedRange.start)/2 )
+      if ( !(this.successVirtualScroll._renderedRange.end >= this.currentIndex) )
+        this.currentIndex = this.successVirtualScroll._renderedRange.end + 5
       else
         this.currentIndex = this.currentIndex + delta
 
