@@ -79,3 +79,31 @@ main{
     transform: translate( 0px, 0vh );
     transition: .7s cubic-bezier(.42,.09,.34,1.05);
 }
+
+
+#dev-by{
+    position: absolute;
+    bottom: 40px;
+    display: grid;
+    justify-content: end;
+    max-width: 1330px;
+    padding: 0px 40px;
+    @media screen and (max-width: 780px) {
+        padding: 0 20px;
+        justify-content: center;
+        bottom: 16px;
+    }
+
+    font-weight: 600;
+    font-size: 18px;
+    column-gap: 5px;
+    box-sizing: border-box;
+    *{
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    a:hover{
+        color: #3E84E6;
+    }
+
+}   

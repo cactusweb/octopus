@@ -76,6 +76,10 @@
             width: 218px;
         }
     }
+    &.odd-success &__img{
+        border-radius: 80px 120px 120px 8px;
+    }
+
     justify-content: start;
 }
 
@@ -139,6 +143,7 @@ cdk-virtual-scroll-viewport, .success-block{
         display: none;
     }
     button{
+        padding-top: 4px;
         border-radius: 50px;
         border-color: #5161C2;
         height: 32px;

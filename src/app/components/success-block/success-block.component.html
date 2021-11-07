@@ -25,7 +25,7 @@
     <div class="scrolling-sdk-wrapper">
         <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="290" minBufferPx="1000" maxBufferPx="1000" id="success-viewport">
             <div class="success" id="fake-success"></div>
-            <div class="success" *cdkVirtualFor="let success of successes">
+            <div class="success" *cdkVirtualFor="let success of successes; let i = index" [class.odd-success]="i%2 != 0">
                 <div class="success__img bg-response" [style.backgroundImage]="'url(' + success.image + ')'">
                 </div>
                 <div class="success__user user row">
