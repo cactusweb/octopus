@@ -1,65 +1,97 @@
-let blockId = 'transit-block';
-
-let currentScrollTop = 0;
-
-let sectionCount = getSectionCountOfBlock();
 
 
+  let xDown;
+  let yDown;
+  let currentSection = 1;
+  
+  function getTouches(evt) {
+    return evt.touches ||             // browser API
+           evt.originalEvent.touches; // jQuery
+  }                                                     
+  
+  function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];                                      
+      xDown = firstTouch.clientX;                                      
+      yDown = firstTouch.clientY;                                      
+  };                                                
+  
+  function handleTouchMove(evt) {
+      let direction = '';
+      if ( ! xDown || ! yDown ) {
+          return;
+      }
+  
+      var xUp = evt.touches[0].clientX;                                    
+      var yUp = evt.touches[0].clientY;
+  
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+  
+      if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+          if ( xDiff > 0 ) {
+            direction = 'left'
+          } else {
+            direction = 'right'
+          }                       
+      } else {
+          if ( yDiff > 0 ) {
+            direction = 'up'
+          } else { 
+            direction = 'down';
+          }                                                                 
+      }
+      /* reset values */
+      xDown = null;
+      yDown = null;
+      return direction;                                          
+  };
 
 
 
+  function getSectionCountOfBlock(){
+      return document.querySelectorAll( ` #${blockId} > .transit-section ` ).length;
+  }
 
 
-function onTouchMove( e, blockName ){
-    let action = handleTouchMove(e);
-    if ( action == 'up' && blockName == 'header' )
-        moveToNextSection(); else
-    if (
-        action == 'down' && blockName == 'main' && document.querySelector(`#${blockId} main.transit-section`).scrollTop <= 0
-     )
-        moveToPrevSection()
-}
+  function moveToNextSection(){
+    if ( currentScrollTop === (sectionCount-1) * -100 )
+        return false;
+    document.querySelector(`#${blockId}`).dispatchEvent(new Event( 'scroll', { bubbles: true } ));
 
+    currentScrollTop -= 100;
+    currentSection++;
+    document.querySelector(`#${blockId} > .transit-section:nth-child(${currentSection})`).focus();
 
-function onWheelMove( e, blockName ){
-    if ( e.deltaY > 0 && blockName == 'header' && currentScrollTop == 0 )
-        moveToNextSection();
-
-    else
-    if ( e.deltaY < 0 && blockName == 'main' && currentScrollTop == -100 && document.querySelector(`#${blockId} main.transit-section`).scrollTop <= 0 )
-        moveToPrevSection()
-
-    else
-    if (e.deltaY < 0 && blockName == 'main' && currentScrollTop == -100 && document.querySelector(`#${blockId} main.transit-section`).scrollTop <= 0 )
-        onWheelHorisont(e);
-
-}
-
-
-document.querySelector( '#to-next-block' ).addEventListener( 'click', () => {
-    
-    if ( moveToNextSection() )
-        document.querySelector(`#${blockId} main.transit-section`).scrollTop = 0;
-})
+      let dispatchEl = document.querySelector("app-about .about__card:first-child")
+      dispatchElW = dispatchEl.offsetWidth;
+      dispatchEl.style.width = dispatchElW+5 + 'px'
+      setTimeout(() => {
+        dispatchEl.style.width = 'auto'
+      }, 100);
+    document.getElementById( `${blockId}` ).style.transform = `translate( 0px, ${currentScrollTop}vh )`;
+    document.getElementById( `${blockId}` ).style['pointer-events'] = 'unset';
+    return true;
+  }
 
 
 
-document.querySelector('header').addEventListener( 'touchstart', e => handleTouchStart(e), { passive: true });
-document.querySelector('header').addEventListener( 'touchmove', e => onTouchMove(e, 'header') );
+  
 
+  function moveToPrevSection(){
+    if ( currentScrollTop === 0 )
+        return false;
+    document.querySelector(`#${blockId}`).dispatchEvent(new Event( 'scroll', { bubbles: true } ));
 
-document.querySelector(`#${blockId}`).addEventListener( 'touchstart', e => handleTouchStart(e), { passive: true });
-document.querySelector(`#${blockId}`).addEventListener( 'touchmove', e => onTouchMove(e, 'main'), { passive: true } );
+    currentScrollTop += 100;
+    currentSection--;
+    document.querySelector('header').focus()
+    document.getElementById( `${blockId}` ).style.transform = `translate( 0px, ${currentScrollTop}vh )`;
+    document.getElementById( `${blockId}` ).style['pointer-events'] = 'none';
+    return true;
+  }
 
-document.querySelector( `#${blockId}` ).addEventListener( 'wheel', e => onWheelMove( e, 'main' ) )
-document.querySelector( `header` ).addEventListener( 'wheel', e => onWheelMove( e, 'header' ) )
+  
 
-document.addEventListener( 'keydown', e => {
-    if ( e.key == 'ArrowUp'  && document.querySelector(`#${blockId} main.transit-section`).scrollTop <= 0 )
-        moveToPrevSection();else 
-    if ( e.key == 'ArrowDown' && moveToNextSection() )
-        document.querySelector(`#${blockId} main.transit-section`).scrollTop = 0;
-
-})
-
-document.querySelector(`#${blockId}`).style.transform = 'translate(0px, 0px)'
+//   window.addEventListener( 'resize', () =>{
+//     document.querySelector("#transit-block > section.section.main > main > app-home-features > div > div > div:nth-child(1)").removeAttribute('style')
+//   })
