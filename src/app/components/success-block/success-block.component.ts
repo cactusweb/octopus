@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { Success } from 'src/app/interfaces/success';
 import { HttpService } from 'src/app/services/http.service';
 import { map, take } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
   templateUrl: './success-block.component.html',
   styleUrls: ['./success-block.component.scss']
 })
-export class SuccessBlockComponent implements OnInit, AfterViewInit {
+export class SuccessBlockComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren(CdkVirtualScrollViewport) viewPorts!: QueryList<CdkVirtualScrollViewport>;
   successVirtualScroll: any;
   currentIndex = 0;
@@ -18,10 +18,16 @@ export class SuccessBlockComponent implements OnInit, AfterViewInit {
 
   successBlock!: HTMLElement;
 
+  lastScrollTimestamp: number = new Date().getTime();
+
   constructor(
     private http: HttpService,
-    private eRef: ElementRef
+    private eRef: ElementRef,
+    private renderer: Renderer2
   ) { }
+
+  unlistener1!: () => void;
+  unlistener2!: () => void;
 
   ngOnInit() {
     this.getSuccess();
@@ -33,12 +39,30 @@ export class SuccessBlockComponent implements OnInit, AfterViewInit {
 
     this.successBlock = this.eRef.nativeElement.querySelector('#success-viewport .cdk-virtual-scroll-content-wrapper')
     this.successBlock.classList.add('success-block');
-    this.intervalScroll()
+    this.intervalScroll();
+    this.listenScrollSuccessBlock();
+  }
+
+  ngOnDestroy(){
+    this.unlistener1();
+    this.unlistener2();
+  }
+
+  listenScrollSuccessBlock(){
+    this.unlistener1 = this.renderer.listen( this.successBlock, 'wheel', ( e: WheelEvent ) => {
+      if ( e.deltaX === 0 || e.deltaX === -0 ) return;
+      this.lastScrollTimestamp = new Date().getTime();
+    })
+
+    this.unlistener2 = this.renderer.listen( this.successBlock, 'touchmove', () => {
+      this.lastScrollTimestamp = new Date().getTime() 
+    })
   }
 
   intervalScroll(){
-    console.log(  )
     setInterval( () => {
+      if ( this.lastScrollTimestamp + 4000 > new Date().getTime() ) return;
+      
       let delta = window.screen.width > 780 ? 5 : 2;
       if ( this.successVirtualScroll?._dataLength <= this.currentIndex )
         this.currentIndex = 0;

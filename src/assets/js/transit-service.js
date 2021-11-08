@@ -62,12 +62,12 @@
     currentSection++;
     document.querySelector(`#${blockId} > .transit-section:nth-child(${currentSection})`).focus();
 
-    //   let dispatchEl = document.querySelector("#transit-block > section.section.main > main > app-home-features > div > div > div:nth-child(1)")
-    //   dispatchElW = dispatchEl.offsetWidth;
-    //   dispatchEl.style.width = dispatchElW+5 + 'px'
-    //   setTimeout(() => {
-    //     dispatchEl.style.width = dispatchElW + 'px'
-    //   }, 100);
+      let dispatchEl = document.querySelector("app-about .about__card:first-child")
+      dispatchElW = dispatchEl.offsetWidth;
+      dispatchEl.style.width = dispatchElW+5 + 'px'
+      setTimeout(() => {
+        dispatchEl.style.width = 'auto'
+      }, 100);
     document.getElementById( `${blockId}` ).style.transform = `translate( 0px, ${currentScrollTop}vh )`;
     document.getElementById( `${blockId}` ).style['pointer-events'] = 'unset';
     return true;

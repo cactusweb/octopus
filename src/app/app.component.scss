@@ -47,6 +47,18 @@ main{
     @media screen and ( max-width: 780px ) {
         width: 100%;
     }
+
+    &.mobile{
+        @media screen and ( min-width: 781px ) {
+            display: none;
+        }
+    }
+
+    &.pc{
+        @media screen and ( max-width: 780px ) {
+            display: none;
+        }
+    }
 }
 
 
