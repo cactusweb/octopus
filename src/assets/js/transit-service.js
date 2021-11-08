@@ -66,7 +66,7 @@
       dispatchElW = dispatchEl.offsetWidth;
       dispatchEl.style.width = dispatchElW+5 + 'px'
       setTimeout(() => {
-        dispatchEl.style.width = 'auto'
+        dispatchEl.style.width = dispatchElW + 'px'
       }, 100);
     document.getElementById( `${blockId}` ).style.transform = `translate( 0px, ${currentScrollTop}vh )`;
     document.getElementById( `${blockId}` ).style['pointer-events'] = 'unset';
