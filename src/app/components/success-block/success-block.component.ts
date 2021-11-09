@@ -1,7 +1,7 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { Success } from 'src/app/interfaces/success';
 import { HttpService } from 'src/app/services/http.service';
-import { map, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
@@ -22,7 +22,6 @@ export class SuccessBlockComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private http: HttpService,
-    private eRef: ElementRef,
     private renderer: Renderer2
   ) { }
 
@@ -37,7 +36,7 @@ export class SuccessBlockComponent implements OnInit, AfterViewInit, OnDestroy {
     
     this.successVirtualScroll = this.viewPorts.toArray()[0];
 
-    this.successBlock = this.eRef.nativeElement.querySelector('#success-viewport .cdk-virtual-scroll-content-wrapper')
+    this.successBlock =  this.successVirtualScroll.elementRef.nativeElement.querySelector('.cdk-virtual-scroll-content-wrapper')
     this.successBlock.classList.add('success-block');
     this.intervalScroll();
     this.listenScrollSuccessBlock();
