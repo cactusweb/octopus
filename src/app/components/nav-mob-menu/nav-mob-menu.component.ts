@@ -19,7 +19,6 @@ export class NavMobMenuComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   clickout( event: MouseEvent ){
     let targetEl: any = event.target
-    console.log(targetEl.id)
     if(!this.eRef.nativeElement.contains(event.target) && this.isActive && targetEl.id != 'open-nav-mob' )
       this.changeActiveStatus()
   }

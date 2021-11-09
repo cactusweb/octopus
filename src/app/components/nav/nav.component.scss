@@ -1,5 +1,5 @@
 :host{
-    z-index: 2;
+    z-index: 5;
 }
 
 nav{
@@ -10,7 +10,7 @@ nav{
     > :last-child{
         justify-self: end;
     }
-    z-index: 5;
+    z-index: 10;
 }
 
 .menu{
@@ -140,7 +140,7 @@ app-nav-mob-menu{
         }
 
         &:nth-child(1){
-            transform: rotate(45deg) scale(1.35, 1) translate(4px, 9px);
+            transform: rotate(45deg) scale(1.35, 1) translate(4px, 10px);
             // border-radius: 0.9px;
         }
         &:nth-child(3){

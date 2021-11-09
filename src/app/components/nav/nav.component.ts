@@ -29,6 +29,7 @@ export class NavComponent implements OnInit {
   }
 
   changeNavStatus(){
+    console.log( this.navIsOpen )
     this.navIsOpen = !this.navIsOpen
   }
 
