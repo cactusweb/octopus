@@ -118,4 +118,17 @@ $tab-size: 840px;
         //     align-self: start;
         // }
     }
+
+    @media screen and ( max-width: 780px ) {
+        background: rgba(4, 23, 60, 0.2);
+        .card__icon{
+            max-height: 0px;
+        }
+
+        .card__body{
+            max-height: 157px;
+            margin-top: 12px;
+        }
+        
+    }
 }
