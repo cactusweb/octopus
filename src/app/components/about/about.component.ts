@@ -13,15 +13,10 @@ export class AboutComponent implements OnInit {
       'crypto-currency',
     ],
     [
-      'technic',
+      'groupbuys',
       'nft',
     ],
     [
-      'crypto-games',
-      'sneakers',
-    ],
-    [
-      'groupbuys',
       'community'
     ]
   ]

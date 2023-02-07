@@ -10,21 +10,8 @@ $tab-size: 840px;
     row-gap: 24px;
     &__row{
         display: grid;
-        &:nth-child(1), &:last-child{
-            grid-template-columns: 1fr 1fr;
-            column-gap: 40px;
-        }
-
-        &:nth-child(2), &:nth-child(3){
-            column-gap: 125px;
-        }
-
-        &:nth-child(2){
-            grid-template-columns: 1fr 1.2fr;
-        }
-        &:nth-child(3){
-            grid-template-columns: 1.2fr 1fr;
-        }
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px;
 
         @media screen and ( max-width: $tab-size ) {
             grid-template-columns: auto !important;
