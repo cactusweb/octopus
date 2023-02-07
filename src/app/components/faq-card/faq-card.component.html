@@ -1,6 +1,6 @@
 <div class="card" [class.card--active]="isOpen" (click)="onClickCard()">
     <h4 class="card__title" [transloco]="'faq.' + cardName + '.title'"></h4>
-    <p class="card__body" [transloco]="'faq.' + cardName + '.body'"></p>
+    <p class="card__body" [innerHTML]="'faq.' + cardName + '.body' | transloco"></p>
     <svg class="card__status-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
         <path d="M1 1L9 9L17 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>

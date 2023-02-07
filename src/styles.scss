@@ -210,3 +210,8 @@ router-outlet{
         pointer-events: none;
     }
 }
+
+
+app-faq-card .link{
+    text-decoration: underline;
+}

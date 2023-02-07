@@ -8,12 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class FaqComponent implements OnInit {
 
   cardNames = [
-    "price",
     "purchase",
-    "monitors",
     "resell",
     "contacts",
-    "refound"
   ]
 
   constructor() { }

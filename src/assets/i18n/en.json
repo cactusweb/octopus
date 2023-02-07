@@ -1,17 +1,9 @@
 {
 
     "faq": {
-        "price": {
-            "title": "How much does the subscription cost?",
-            "body": "At the moment, the price for the first month is 5000 rubles and then 3500 rubles per month."
-        },
         "purchase": {
             "title": "How to get in?",
             "body": "Follow the posts on social networks, where we notify about future restocks."
-        },
-        "monitors": {
-            "title": "What monitors do you have?",
-            "body": "We have custom monitors for electronics and sneakers."
         },
         "resell": {
             "title": "Can i resell my membership?",
@@ -19,11 +11,7 @@
         },
         "contacts": {
             "title": "How can I contact you?",
-            "body": "We are ready to answer all your questions through our VK page."
-        },
-        "refound": {
-            "title": "Can i get a refund?",
-            "body": "No, the possibility of a refund is excluded."
+            "body": "We are ready to answer all your questions through our <a href='https://vk.com/octopus_cook' rel='noopener' target='_blank' class='link'>VK page</a>."
         }
     },
 
@@ -61,21 +49,9 @@
             "title": "Crypto",
             "body": "From the first day Octopus Cook has been a place where you can learn as much as possible about crypto."
         },
-        "technic": {
-            "title": "Electronics",
-            "body": "Electronics is one of the most important spheres for us, with us you will never miss information about the upcoming releases in this sphere."
-        },
         "nft": {
             "title": "NFT",
             "body": "We have a separate team dealing with the NFT section, which has a huge experience in this sphere and is able to share a qualitative analysis of upcoming releases."
-        },
-        "crypto-games": {
-            "title": "CryptoGames",
-            "body": "We have a separate section with a detailed analysis of Play to Earn games, where we notify about the most profitable and low-key projects."
-        },
-        "sneakers": {
-            "title": "Sneakers",
-            "body": "For sneakers we have: analysis, sitelists and our own software, which greatly simplify the process of purchasing limited pairs of shoes."
         },
         "groupbuys": {
             "title": "Groupbuys",
