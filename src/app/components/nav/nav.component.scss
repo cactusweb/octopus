@@ -66,12 +66,6 @@ a.btn{
 }
 
 
-.btns{
-    column-gap: 40px;
-}
-
-
-
 app-lang-switcher{
     @media screen and ( max-width: 780px ) {
         display: none;
