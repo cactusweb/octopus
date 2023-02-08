@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TranslocoRootModule } from './transloco/transloco-root.module';
-import { LangSwitcherComponent } from './components/lang-switcher/lang-switcher.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './components/about/about.component';
 import { FaqComponent } from './components/faq/faq.component';
@@ -22,7 +21,6 @@ import { NavMobMenuComponent } from './components/nav-mob-menu/nav-mob-menu.comp
     AppComponent,
     NavComponent,
     HeaderComponent,
-    LangSwitcherComponent,
     AboutComponent,
     FaqComponent,
     FooterComponent,
