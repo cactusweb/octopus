@@ -12,7 +12,6 @@ export class FaqComponent implements OnInit {
     "price",
     "purchase",
     "contacts",
-    "refound"
   ]
 
   constructor() { }
