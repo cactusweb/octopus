@@ -1,25 +1,21 @@
 {
 
     "faq": {
+        "about": {
+            "title": "About Octopus Union",
+            "body": "Octopus Union is a dynamic and innovative player in the blockchain industry. Since our inception in 2020, we have been dedicated to providing our members with endless earning opportunities through our diverse range of investment strategies and cutting-edge solutions. Whether you're a seasoned investor or just starting out, Octopus Union offers something for everyone. Join our community today and unlock the full potential of your investments"
+        },
         "price": {
             "title": "How much does the subscription cost?",
-            "body": "At the moment, the price for the first month is 5000 rubles and then 3500 rubles per month."
+            "body": "TBA"
         },
         "purchase": {
             "title": "How to get in?",
-            "body": "Follow the posts on social networks, where we notify about future restocks."
-        },
-        "monitors": {
-            "title": "What monitors do you have?",
-            "body": "We have custom monitors for electronics and sneakers."
-        },
-        "resell": {
-            "title": "Can i resell my membership?",
-            "body": "No, it's a violation of our rules. "
+            "body": "Follow the posts on social networks."
         },
         "contacts": {
             "title": "How can I contact you?",
-            "body": "We are ready to answer all your questions through our VK page."
+            "body": "We are ready to answer all your questions through our Discord."
         },
         "refound": {
             "title": "Can i get a refund?",
@@ -42,8 +38,10 @@
 
 
     "footer": {
-        "vk": "VKontakte",
-        "tw": "Twitter"
+        "vk": "VK (RU)",
+        "tg": "Telegram (RU)",
+        "tw": "Twitter",
+        "ds": "Discord"
     },
 
 
@@ -61,9 +59,9 @@
             "title": "Crypto",
             "body": "From the first day Octopus Cook has been a place where you can learn as much as possible about crypto."
         },
-        "technic": {
-            "title": "Electronics",
-            "body": "Electronics is one of the most important spheres for us, with us you will never miss information about the upcoming releases in this sphere."
+        "cardano": {
+            "title": "Cardano",
+            "body": "Our top priority in research is the Cardano blockchain, a highly secure and innovative platform that offers unparalleled potential for growth and investment opportunities."
         },
         "nft": {
             "title": "NFT",
@@ -73,13 +71,13 @@
             "title": "CryptoGames",
             "body": "We have a separate section with a detailed analysis of Play to Earn games, where we notify about the most profitable and low-key projects."
         },
-        "sneakers": {
-            "title": "Sneakers",
-            "body": "For sneakers we have: analysis, sitelists and our own software, which greatly simplify the process of purchasing limited pairs of shoes."
+        "software": {
+            "title": "Software",
+            "body": "We believe in empowering our members to reach their full potential. We offer special software to mint drops in main networks to all members. Join us for exclusive access and to maximize your ROI."
         },
         "groupbuys": {
-            "title": "Groupbuys",
-            "body": "We have a lot of partners, for this reason our members have a great chance to get the software they need, since we provide such an opportunity regularly."
+            "title": "DAO partnerships",
+            "body": "At Octopus Union, we believe in the power of collaboration. That's why we've formed numerous partnerships with DAOs to enhance our offerings and bring more cutting-edge value to our members."
         },
         "community": {
             "title": "Community",
