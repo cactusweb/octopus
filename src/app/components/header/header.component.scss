@@ -72,7 +72,7 @@ h1{
         position: absolute;
         right: 0px;
         bottom: 16px;
-        width: 186px;
+        width: 146px;
         height: 68px;
         background: linear-gradient(99.27deg, #C912B0 5.04%, #A2019E 116.27%);
         font-weight: 600;
@@ -80,7 +80,7 @@ h1{
         color: #fff;
         border: none;
         @media screen and ( max-width: $tab-size ) {
-            width: 85px;
+            width: 76px;
             height: 36px;
             font-size: 12px;
             bottom: 6px;
