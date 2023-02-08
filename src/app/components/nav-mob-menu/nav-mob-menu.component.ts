@@ -3,7 +3,10 @@ import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Outpu
 @Component({
   selector: 'app-nav-mob-menu',
   templateUrl: './nav-mob-menu.component.html',
-  styleUrls: ['./nav-mob-menu.component.scss']
+  styleUrls: ['./nav-mob-menu.component.scss'],
+  host: {
+    '[style.pointer-events]' : 'isActive ? "initial" : "none"'
+  }
 })
 export class NavMobMenuComponent implements OnInit {
   @Input() isActive: boolean = false;
